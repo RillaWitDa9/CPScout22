@@ -1,6 +1,7 @@
- #include<iostream>
+  #include<iostream>
 #include<ctime>
 using namespace std;
+//#include<windows.h>
 
 
 //function declarations
@@ -16,7 +17,7 @@ int main() {
   int room = 1;
   string input = "a";
   string inventory[10]; 
-
+  
   cout << "You've been captured by your enemy and put in a bunker, can you escape? Good Luck!" << endl;
   cout << "    " << endl;
 
@@ -30,7 +31,8 @@ int main() {
     switch (room) {
 
     case 1:
-    
+      //system("Color 6F");
+
       cout << "You are in a room that you just woke up in. No lights, no sounds of life, its just you, in this empty room. . It's cold and you only see glints of light coming from two other rooms. In front of you there's also a room which has a big name on the wall on top which is named STORAGE. This room requires a code to enter, and the only thing behind you are stairs. Decide to go either left (W) or right (S)or to check out these stairs (N). You could also attempt to gain access to this storage room in front of you with a code (E). Is this bunker dangerous? lets find out! " << endl;
       cout << "      " << endl;
       cout << "You may go (W)est, (E)ast, (N)orth, or (S)outh" << endl;
@@ -54,6 +56,7 @@ int main() {
 
 
     case 2://room2
+        
         cout << "So, you've chosen to go left. You've now entered a room where you can see a small fire that's about to be put out because it's so cold. However you find yourself standing up again after checking out the fire, and when you look to your left,  you are surprised to see there's a beat up wooden door that can be pulled open to reveal whatever is hiding behind that door." << endl;
         cout << "     " << endl;
         cout << "You may either enter this mysterious room (S) that you've found, (E) or you may go back to the first room you found yourself in" << endl;
@@ -206,4 +209,4 @@ void shop(){
     }
   }while(input=="q");
 }
-  
+  //Brandon Sandoval-------------------------------------------------------------------------
