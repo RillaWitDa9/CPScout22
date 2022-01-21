@@ -1,0 +1,6 @@
+print("GAME")
+print("        ")
+print("Enter you're age")
+age = input()
+print ("Your score is: ", age);
+print("Dang this task is too difficult for you... must suck")
