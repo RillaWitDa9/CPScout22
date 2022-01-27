@@ -1,0 +1,89 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	
+	int room = 1;
+	string input = "a";
+
+	cout << "This is a text based game for a daily code on the 27th of Janurary";
+	cout << endl;
+	cout << "                                                                              ";
+	cout << endl;
+
+	do {
+
+		switch (room) {
+
+		case 1:
+			cout << "You are in the first room. From this room you can go UP (N) or left (W) or right (E)";
+			cout << endl;
+
+			cin >> input;
+			if (input == "W")
+				room = 3;
+			else if (input == "N")
+				room = 2;
+			else if (input == "E")
+				room = 4;
+			else 
+				cout << "Sorry, not an option!";
+			cout << endl;
+			break;
+
+		case 2://room 2 onfoenem
+			cout << "You are in room 2, you can only go down onfoenem (S)";
+				cout << endl;
+				cin >> input;
+				if (input == "S")
+					room = 1;
+				else
+				cout << "Sorry not an option!";
+					cout << endl;
+				break;
+
+		case 3://room 3
+			cout << "Cool, now you are in the 3rd room, you could go back to your right onfoenem (E)";
+				cout << endl;
+					
+				cin >> input;
+				if (input == "E")
+					room = 1;
+				else
+					cout << "Sorry not an option";
+					cout << endl;
+				break;
+
+		case 4://room 4
+			cout << "Now you're in the 4th room. you can go down (S) or left (W)";
+			cout << endl;
+
+			cin >> input;
+			if (input == "W")
+				room = 5;
+			else if (input == "S")
+				room = 1;
+			else
+				cout << "Sorry not an option!";
+				cout << endl;
+		    break;
+
+		case 5://room 5
+			cout << "You in room 5 now, you can go only up (N)" << endl;
+				
+
+			cin >> input;
+			if (input == "N")
+				room = 4;
+			else
+				cout << "Sorry not an option onfoenem" << endl;
+
+			break;
+	}
+		
+
+
+} while (input != "q");
+}
+
+
