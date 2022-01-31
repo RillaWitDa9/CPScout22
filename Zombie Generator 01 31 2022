@@ -1,0 +1,68 @@
+import random
+a = 0
+
+def zombieDrop(looting):
+    num = random.randrange(1, 1000)
+   
+    if looting == 0:
+        if num<25:
+            print(" zombie dropped an iron ingot")
+        elif num <50:
+            print("zombie dropped a potato")
+        elif num <75:
+            print(" zombie dropped a carrot")
+        else:
+            if num<333:
+                print(" you got 0 rotten flesh")
+            elif num<666:
+                print(" you got 1 rotten flesh")
+            else:
+                print("you got 2 rotten flesh")
+    if looting == 1:
+        if num<35:
+            print(" zombie dropped an iron ingot")
+        elif num <60:
+            print("zombie dropped a potato")
+        elif num <85:
+            print(" zombie dropped a carrot")
+        else:
+            if num<333:
+                print(" you got 0 rotten flesh")
+            elif num<666:
+                print(" you got 1 rotten flesh")
+            else:
+                print("you got 2 rotten flesh")
+    if looting == 2:
+        if num<45:
+            print(" zombie dropped an iron ingot")
+        elif num <70:
+            print("zombie dropped a potato")
+        elif num <95:
+            print(" zombie dropped a carrot")
+        else:
+            if num<333:
+                print(" you got 0 rotten flesh")
+            elif num<666:
+                print(" you got 1 rotten flesh")
+            else:
+                 print("you got 2 rotten flesh")
+    if looting == 3:
+            if num<55:
+                 print(" zombie dropped an iron ingot")
+            elif num <80:
+                 print("zombie dropped a potato")
+            elif num <105:
+                print(" zombie dropped a carrot")
+            else:
+                if num<333:
+                    print(" you got 0 rotten flesh")
+                elif num<666:
+                    print(" you got 1 rotten flesh")
+                else:
+                    print("you got 2 rotten flesh")
+choice = 'a'
+while choice != 'q':
+    print ("enter looting level, or 'q' to quit")
+    choice = input()
+    if choice != 'q' :
+        zombieDrop(int(choice))
