@@ -1,0 +1,37 @@
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+
+void eep(char color, int num);
+
+
+int main()
+{
+    int input2;
+    char input;
+    cout << "Please r,b,g,y" << endl;
+    cin >> input;
+    cout << "Please enter a number" << endl;
+    cin >> input2;
+    eep(input, input2);
+ 
+
+}
+
+void eep(char color, int num) {
+   
+   
+    Beep(num, num);
+   
+   
+    if (color == 'r')
+        cout << "red" << endl;
+    else if (color == 'b')
+        cout << "blue" << endl;
+    else if (color == 'g')
+        cout << "green" << endl;
+    else if (color == 'y')
+        cout << "yellow" << endl;
+   
+
+}
