@@ -1,0 +1,86 @@
+#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace std;
+
+vector<int> nums;
+
+int CircleArea(double area);
+void HI();
+
+int main() {
+
+	double num;
+
+	cout << "Enter radius" << endl;
+
+	cin >> num;
+
+	cout << CircleArea(num);
+
+	cout << endl;
+	cout << endl;
+
+	HI();
+}
+
+int CircleArea(double area) {
+
+	area = 3.1415 * area * area;
+
+	return area;
+
+}
+
+void HI() {
+
+	int input = 1;
+	int numbers = 0;
+	int FIVES = 0;
+
+	while (input != 0) {
+
+		cout << "Enter a number to add to the list" << endl;
+		cout << "you entered " << numbers << " numbers" << endl;
+		cin >> input;
+		numbers++;
+		nums.insert(nums.end(), input);
+
+		system("cls");
+	}
+
+	sort(nums.begin(), nums.end());
+
+
+	for (int i = 0; i < nums.size(); i++)
+		cout << " " << nums[i];
+
+	cout << endl;
+
+	if (find(nums.begin(), nums.end(), 5) != nums.end()) {
+
+		FIVES++;
+
+		if (FIVES > 1)
+			cout << "There is " << FIVES << " amount of 5's" << endl;
+
+	}
+	else {
+
+		cout << "There were no 5's in this list" << endl;
+
+	}
+
+
+	cout << "Deleted last 3 items" << endl;
+
+	nums.pop_back();
+	nums.pop_back();
+	nums.pop_back();
+
+	for (int i = 0; i < nums.size(); i++)
+		cout << " " << nums[i];
+
+	cout << endl;
+
+}
