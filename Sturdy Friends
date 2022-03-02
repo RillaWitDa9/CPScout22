@@ -1,0 +1,44 @@
+#include <iostream>
+#include <algorithm>
+#include <random>
+using namespace std;
+
+
+
+int main()
+{
+	int sturdy[10];
+	bool cool = false;
+
+	for (int i = 0; i < 10; i++)
+		sturdy[i] = rand() % 50 + 50;
+
+	for (int i = 0; i < 10; i++)
+		cout << sturdy[i] << endl;
+
+	string frands[5];
+	char a;
+	cout << "Enter 5 of your friends name :P" << endl;
+	cin >> frands[0];
+	cin >> frands[1];
+	cin >> frands[2];
+	cin >> frands[3];
+	cin >> frands[4];
+	cout << "These are your friends: " << endl;
+
+	for (int i = 0; i < 5; i++) {
+		cout << frands[i] << endl;
+		if (frands[i] == "Alejandro")
+			cool = true;
+
+		if(cool == true)
+			cout << "You have some cool friends" << endl;
+		else
+			cout<<"You need better friends" << endl;
+	}
+
+		
+
+	
+
+}
