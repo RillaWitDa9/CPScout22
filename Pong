@@ -1,0 +1,117 @@
+import pygame
+pygame.init()
+
+screen = pygame.display.set_mode((700,500))
+pygame.display.set_caption("pong")
+
+
+doExit = False
+
+
+clock = pygame.time.Clock()
+
+p1x = 20
+p1y = 200
+
+p2x = 650
+p2y = 200
+
+p1score = 1
+p2score = 2
+
+#ball variables
+bx = 350 #xpos
+by = 250 #ypos
+bVx = 10 #x velocity
+bVy = 7 #y velocity
+while not doExit: #GAME LOOP--------------
+    
+    
+    clock.tick(60)
+    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            doExit = True
+            
+            
+    #display scores
+    font = pygame.font.Font(None, 74) #use default font    
+    text = font.render(str(p1score), 1, (255, 255, 255))
+    screen.blit(text, (250,10))
+    text = font.render(str(p1score), 1, (255, 255, 255))
+    screen.blit(text, (420,10))
+       
+       
+       
+       
+       
+    #render section-------
+    screen.fill((200,0,110)) #wipe screen black
+    pygame.draw.rect(screen, (255, 255, 255), (p1x, p1y, 20, 100), 4)    
+    pygame.draw.rect(screen, (255, 255, 255), (p2x, p2y, 20, 100), 4)
+            
+    pygame.draw.circle(screen, (255, 255, 255), (bx, by), 20, 100)
+    
+            
+    #draw a line down the middle
+    pygame.draw.line(screen, (255, 255, 255), [349, 9], [349, 500], 5)
+    
+    font = pygame.font.Font(None, 74) #use default font    
+    text = font.render(str(p1score), 1, (155, 255, 255))
+    screen.blit(text, (250,10))
+    text = font.render(str(p2score), 1, (255, 255, 255))
+    screen.blit(text, (420,10))
+ 
+            
+    #update the screen
+    pygame.display.flip()
+        
+    #game logic------    
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]:
+        p1y-=10
+    if keys[pygame.K_s]:   
+        p1y+=10
+            
+        
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_UP]:
+        p2y-=10
+    if keys[pygame.K_DOWN]:   
+        p2y+=10
+        
+    #ball movement
+    bx += bVx
+    by += bVy
+    
+    #reflect ball off side walls of screen
+   
+    if by<0:
+        bVy *=-1
+    if by+20>500:
+        bVy *=-1
+    
+    #ball-paddle reflection
+    if bx < p1x + 30 and by + 20 > p1y and by < p1y + 100:
+            bVx *= -1            
+           
+    if bx > p2x - 10 and by + 20 > p2y and by < p2y + 100:
+            bVx *= -1
+        
+        
+            
+    if bx < 0:
+            bVx *= -1
+            p2score += 1
+       
+    if bx+20 > 700:
+            bVx *= -1
+            p1score += 1    
+    
+    
+    
+    
+    
+            
+            
+pygame.quit()
