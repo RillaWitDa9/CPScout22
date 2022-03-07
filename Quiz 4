@@ -1,0 +1,49 @@
+import random
+
+def MonsterGen(biome):
+    
+    if biome == 'd':
+        chance = random.randrange(1,101)
+        if chance <= 20:
+            print("A Husky that appeared joins in onfoenem")
+        elif chance <=50:
+            print("A spider appeared")
+        else:
+            print("Appeared has a skeleton")
+    elif biome == 'f':
+        chance = random.randrange(1,101)
+        if chance <= 30:
+            print("Oh look a zombie lol!")
+        elif chance <=60:
+            print("Skeleton number 2!!")
+        elif chance <= 70:
+            print("A witch which has not been wanted has appeared as a witch")
+        else:
+            print("Hmm, its quiet no cap")
+
+Word = "SNURFLE"
+x = 21
+w = 3
+
+
+while w != 24:
+     print(w)
+     w+=3
+
+x = 0
+print("Enter a number")
+choice = int(input())
+    
+while x != choice:
+    print(Word)
+    x+=1
+
+
+print("Which area do you want to explore?")
+Dang = 'a'
+while Dang != 'q':
+    print("'f' For dark spruce or 'd' for Desert ")
+    Dang = input()
+    if Dang != 'q':
+        MonsterGen(Dang)
+
