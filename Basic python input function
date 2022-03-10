@@ -1,0 +1,10 @@
+def numPrint(i, n):
+    print(i*n)
+
+
+#"main" program----------------------------------------
+
+print("Enter 2 number") #ask for number
+num = int(input())#get user input
+num2 = int(input())
+numPrint(num, num2) #call the function, pass the input
