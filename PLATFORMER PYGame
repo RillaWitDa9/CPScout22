@@ -1,0 +1,338 @@
+import pygame
+import random
+pygame.init()
+pygame.mixer.init()
+pygame.display.set_caption("easy platformer")  # sets the window title
+screen = pygame.display.set_mode((800, 800))  # creates game screen
+screen.fill((0,0,0))
+clock = pygame.time.Clock() #set up clock
+gameover = False #variable to run our game loop
+
+#CONSTANTS
+LEFT=0
+RIGHT=1
+UP = 2
+DOWN = 3
+A = 0
+W = 1
+D = 2
+
+#platform class 1
+class platform:
+    def __init__(self, xpos, ypos):
+        self.xpos = xpos
+        self.ypos = ypos
+    def draw(self):
+           pygame.draw.rect(screen, (255, 0, 255), (self.xpos, self.ypos, 50, 20))
+    def collide(self, x, y):
+        if x+20>self.xpos and x<self.xpos+50 and y+40> self.ypos and y+40 < self.ypos+20:
+            return self.ypos
+        else:
+            return False
+
+p1 = platform(400,500)
+p2 = platform(300,300)
+p3 = platform(200, 600)
+p4 = platform(670,260)
+p5 = platform(300,200)
+p6 = platform(240, 800)
+p7 = platform(250,270)
+p8 = platform(310,20)
+p9 = platform(350, 120)
+p10 = platform(240,420)
+p11 = platform(200,230)
+p12 = platform(240, 720)
+p13 = platform(300, 650)
+'''
+#collision just for individual platform
+isOnGround = False
+if p1.collide(xpos, ypos) != False:
+    isOnGround = True
+    vy = 0
+    ypos = p1.collide(xpos, ypos)
+'''
+
+#player variables
+xpos = 500 #xpos of player
+ypos = 760 #ypos of player
+vx = 0 #x velocity of player
+vy = 0 #y velocity of player
+keys = [False, False, False, False] #this list holds whether each key has been pressed
+isOnGround = False #this variable stops gravity from pulling you down more when on a platform
+
+xpos2 = 400 #xpos of player
+ypos2 = 760 #ypos of player
+vx2 = 0 #x velocity of player
+vy2 = 0 #y velocity of player
+keys2 = [False, False, False, False] #this list holds whether each key has been pressed
+isOnGround2 = False #this variable stops gravity from pulling you down more when on a platform
+monguy = pygame.image.load("monguys.png")
+monguys = pygame.image.load("monguy.png")
+while not gameover: #GAME LOOP############################################################
+    clock.tick(60) #FPS
+   
+    #Input Section------------------------------------------------------------
+    for event in pygame.event.get(): #quit game if x is pressed in top corner
+        if event.type == pygame.QUIT:
+            gameover = True
+     
+        if event.type == pygame.KEYDOWN: #looking for key presses
+            if event.key == pygame.K_LEFT:
+                keys[LEFT]=True
+
+            elif event.key == pygame.K_UP:
+                keys[UP]=True
+               
+            elif event.key == pygame.K_RIGHT:
+                keys[RIGHT]=True
+               
+               
+            if event.key == pygame.K_a:
+                keys2[A]=True
+            elif event.key == pygame.K_d:
+                keys2[D]=True
+            elif event.key == pygame.K_w:
+                keys2[W]=True
+           
+               
+        elif event.type == pygame.KEYUP: #looking for key releases
+            if event.key == pygame.K_LEFT:
+                keys[LEFT]=False
+
+            elif event.key == pygame.K_UP:
+                keys[UP]=False
+
+            elif event.key == pygame.K_RIGHT:
+                keys[RIGHT]=False
+   
+            if event.key == pygame.K_a:
+                keys2[A]=False
+
+            elif event.key == pygame.K_w:
+                keys2[W]=False
+               
+            elif event.key == pygame.K_d:
+                keys2[D]=False
+
+
+         
+    #physics section--------------------------------------------------------------------
+    #LEFT MOVEMENT
+    if keys[LEFT]==True:
+        vx=-3
+        direction = LEFT
+   
+    elif keys[RIGHT]==True:
+        vx=+3
+        direction = RIGHT
+
+    #turn off velocity
+    else:
+        vx = 0
+        #JUMPING
+    if keys[UP] == True and isOnGround == True: #only jump when on the ground
+        vy = -8
+        isOnGround = False
+        direction = UP
+    #--------------------------
+    #LEFT MOVEMENT
+    if keys2[A]==True:
+        vx2=-3
+   
+    elif keys2[D]==True:
+        vx2=+3
+
+    #turn off velocity
+    else:
+        vx2 = 0
+        #JUMPING
+       
+    if keys2[W] == True and isOnGround2 == True: #only jump when on the ground
+        vy2 = -8
+        isOnGround2 = False
+        direction = W
+   
+   
+    isOnGround = False
+    if p1.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos2 = p1.collide(xpos2, ypos2)-40
+       
+   
+    if p2.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos2 = p2.collide(xpos2, ypos2)-40
+
+    if p3.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos2 = p3.collide(xpos2, ypos2)-40
+
+    if p4.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos2 = p4.collide(xpos2, ypos2)-40
+   
+    if p5.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos2 = p5.collide(xpos2, ypos2)-40
+   
+    if p6.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos2 = p6.collide(xpos2, ypos2)-40
+ 
+    if p7.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos2 = p7.collide(xpos2, ypos2)-40
+ 
+    if p8.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos2 = p8.collide(xpos2, ypos2)-40
+   
+    if p9.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos2 = p9.collide(xpos2, ypos2)-40
+   
+    if p10.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos2 = p10.collide(xpos2, ypos2)-40
+
+    if p11.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos2 = p11.collide(xpos2, ypos2)-40
+   
+    if p12.collide(xpos2,ypos2) != False:
+        isOnGround = True
+        vy2 = 0
+        ypos = p12.collide(xpos2, ypos2)-40
+
+    isOnGround = False
+    if p1.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p1.collide(xpos, ypos)-40
+       
+   
+    if p2.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p2.collide(xpos, ypos)-40
+
+    if p3.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p3.collide(xpos, ypos)-40
+
+    if p4.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p4.collide(xpos, ypos)-40
+   
+    if p5.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p5.collide(xpos, ypos)-40
+   
+    if p6.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p6.collide(xpos, ypos)-40
+ 
+    if p7.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p7.collide(xpos, ypos)-40
+ 
+    if p8.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p8.collide(xpos, ypos)-40
+   
+    if p9.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p9.collide(xpos, ypos)-40
+   
+    if p10.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p10.collide(xpos, ypos)-40
+
+    if p11.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p11.collide(xpos, ypos)-40
+   
+    if p12.collide(xpos,ypos) != False:
+        isOnGround = True
+        vy = 0
+        ypos = p12.collide(xpos, ypos)-40
+#fun bug
+    #elif xpos>300 and xpos<400 and ypos+40 >550 and ypos+40 <570:
+      #  ypos = 650-40
+      #  vy = 0
+    #
+    #stop falling if on bottom of game screen
+    if ypos > 760:
+        isOnGround = True
+        vy = 0
+        ypos = 760
+   
+    #gravity
+    if isOnGround == False:
+        vy+=.2 #notiace this grows over time, aka ACCELERATION
+   
+
+    #update player position
+    xpos+=vx
+    ypos+=vy
+   
+    if ypos2 > 760:
+        isOnGround2 = True
+        vy2 = 0
+        ypos2 = 760
+   
+    #gravity
+    if isOnGround2 == False:
+        vy2+=.2 #notice this grows over time, aka ACCELERATION
+   
+
+    #update player position
+    xpos2+=vx2
+    ypos2+=vy2
+   
+ 
+    # RENDER Section--------------------------------------------------------------------------------
+           
+    screen.fill((0,0,0)) #wipe screen so it doesn't smear
+
+   
+    p1.draw()
+    p2.draw()
+    p3.draw()
+    p4.draw()
+    p5.draw()
+    p6.draw()
+    p7.draw()
+    p8.draw()
+    p9.draw()
+    p10.draw()
+    p11.draw()
+    p12.draw()
+    p13.draw()
+
+    screen.blit(monguy,(xpos, ypos))
+    screen.blit(monguys,(xpos2, ypos2-13))
+    pygame.display.flip()#this actually puts the pixel on the screen
+   
+#end game loop------------------------------------------------------------------------------
+pygame.quit()
