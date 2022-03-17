@@ -1,0 +1,28 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    vector<int> Ye;
+    int size;
+    int input;
+    int i = 0;
+
+    cin >> size;
+
+    while (i != size) {
+        cin >> input;
+        Ye.push_back(input);
+        i++;
+    }
+
+    sort(Ye.begin(), Ye.end());
+
+    for (int Ye2 = 0; Ye2 < Ye.size(); Ye2++)
+        cout << Ye[Ye2] << " ";
+    return 0;
+}
