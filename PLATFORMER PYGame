@@ -1,7 +1,6 @@
 import pygame
 import random
 pygame.init()
-pygame.mixer.init()
 pygame.display.set_caption("easy platformer")  # sets the window title
 screen = pygame.display.set_mode((800, 800))  # creates game screen
 screen.fill((0,0,0))
@@ -68,6 +67,31 @@ keys2 = [False, False, False, False] #this list holds whether each key has been 
 isOnGround2 = False #this variable stops gravity from pulling you down more when on a platform
 monguy = pygame.image.load("monguys.png")
 monguys = pygame.image.load("monguy.png")
+
+
+#animation variables variables
+frameWidth = 40
+frameHeight = 48
+RowNum = 0 #for left animation, this will need to change for other animations
+frameNum = 0
+ticker = 0
+
+#animation variables variables
+frameWidth2 = 40
+frameHeight2 = 48
+RowNum2 = 0 #for left animation, this will need to change for other animations
+frameNum2 = 0
+ticker2 = 0
+
+
+#SOUND
+jump = pygame.mixer.Sound('jump.wav')
+music = pygame.mixer.music.load('corridofelixgallardo.mp3')
+pygame.mixer.music.play(-1)
+
+
+
+
 while not gameover: #GAME LOOP############################################################
     clock.tick(60) #FPS
    
@@ -88,6 +112,7 @@ while not gameover: #GAME LOOP##################################################
                
                
             if event.key == pygame.K_a:
+
                 keys2[A]=True
             elif event.key == pygame.K_d:
                 keys2[D]=True
@@ -130,11 +155,17 @@ while not gameover: #GAME LOOP##################################################
     else:
         vx = 0
         #JUMPING
+
+ 
     if keys[UP] == True and isOnGround == True: #only jump when on the ground
         vy = -8
         isOnGround = False
         direction = UP
-    #--------------------------
+        pygame.mixer.Sound.play(jump)
+    
+     
+     
+ #--------------------------
     #LEFT MOVEMENT
     if keys2[A]==True:
         vx2=-3
@@ -146,7 +177,29 @@ while not gameover: #GAME LOOP##################################################
     else:
         vx2 = 0
         #JUMPING
-       
+    
+   
+   
+    if keys[W] == True and isOnGround == True: #only jump when on the ground
+        vy = -8
+        isOnGround = False
+        direction = W
+        pygame.mixer.Sound.play(jump)
+     
+    
+    if keys[UP] == True and isOnGround == True: #only jump when on the ground
+        vy = -8
+        isOnGround = False
+        direction = UP
+        pygame.mixer.Sound.play(jump)
+    
+    if keys[W] == True and isOnGround == True: #only jump when on the ground
+        vy = -8
+        isOnGround = False
+        direction = W
+        pygame.mixer.Sound.play(jump)
+    
+    
     if keys2[W] == True and isOnGround2 == True: #only jump when on the ground
         vy2 = -8
         isOnGround2 = False
@@ -276,12 +329,9 @@ while not gameover: #GAME LOOP##################################################
         isOnGround = True
         vy = 0
         ypos = p12.collide(xpos, ypos)-40
-#fun bug
-    #elif xpos>300 and xpos<400 and ypos+40 >550 and ypos+40 <570:
-      #  ypos = 650-40
-      #  vy = 0
-    #
-    #stop falling if on bottom of game screen
+
+
+
     if ypos > 760:
         isOnGround = True
         vy = 0
@@ -289,7 +339,7 @@ while not gameover: #GAME LOOP##################################################
    
     #gravity
     if isOnGround == False:
-        vy+=.2 #notiace this grows over time, aka ACCELERATION
+        vy+=.2 #notice this grows over time, aka ACCELERATION
    
 
     #update player position
@@ -311,6 +361,13 @@ while not gameover: #GAME LOOP##################################################
     ypos2+=vy2
    
  
+    
+    
+    
+    
+    
+    
+    
     # RENDER Section--------------------------------------------------------------------------------
            
     screen.fill((0,0,0)) #wipe screen so it doesn't smear
@@ -329,9 +386,14 @@ while not gameover: #GAME LOOP##################################################
     p11.draw()
     p12.draw()
     
-
-    screen.blit(monguy,(xpos, ypos))
-    screen.blit(monguys,(xpos2, ypos2-13))
+    
+    #screen.blit(monguys, (xpos, ypos), (frameWidth * frameNum, RowNum * frameHeight, frameWidth, frameHeight))
+    #screen.blit(monguy, (xpos2, ypos2-13), (frameWidth2 * frameNum2, RowNum2 * frameHeight2, frameWidth2, frameHeight2))
+    
+    
+    
+    screen.blit(monguy,(xpos, ypos-13), (frameWidth * frameNum, RowNum * frameHeight, frameWidth, frameHeight))
+    screen.blit(monguys,(xpos2, ypos2-13), (frameWidth2 * frameNum2, RowNum2 * frameHeight2, frameWidth2, frameHeight2))
     pygame.display.flip()#this actually puts the pixel on the screen
    
 #end game loop------------------------------------------------------------------------------
