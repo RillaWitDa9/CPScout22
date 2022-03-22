@@ -328,7 +328,7 @@ while not gameover: #GAME LOOP##################################################
     p10.draw()
     p11.draw()
     p12.draw()
-    p13.draw()
+    
 
     screen.blit(monguy,(xpos, ypos))
     screen.blit(monguys,(xpos2, ypos2-13))
