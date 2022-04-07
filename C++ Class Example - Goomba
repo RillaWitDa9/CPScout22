@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+
+class Goomba {
+private:
+	int xPosition;
+	int yPosition;
+	int direction; //1 is left, 2 is right
+	
+public:
+	Goomba(int x, int y); //constructor
+	void walk();
+	void print();	
+	
+};
+
+int main() {
+
+	//Goomba g1(200, 200);
+	//Goomba g2;
+	//g1.setPosition(200, 200);
+
+	Goomba Bob(200, 200); //instantiate the goomba
+	Goomba Joe(200, 200);
+	while (1) {
+		Bob.walk();
+		Bob.print();
+		system("pause");
+
+		Joe.walk();
+		Joe.print();
+		system("pause");
+	}
+
+}
+
+Goomba::Goomba(int x, int y) {
+	xPosition = x;
+	yPosition = y;
+	direction = 1;
+}
+
+void Goomba::walk() {
+	if (direction == 1)
+		xPosition -= 10;
+	if (xPosition <= 0)
+		direction = 2;
+	
+	if (direction == 2)
+		xPosition += 10;
+	if (xPosition >= 800)
+		direction = 1;
+
+}
+
+void Goomba::print() {
+	if(direction == 1)
+		cout << "hi im a goomba and im at " << xPosition << " , " << yPosition << " and my direciton is left" << endl;
+	else
+		cout << "hi im a goomba and im at " << xPosition << " , " << yPosition << " and my direciton is right" << endl;
+}
