@@ -1,0 +1,87 @@
+#include<iostream>
+#include<Windows.h>
+using namespace std;
+
+class FylingKoopa {
+private:
+	string name;
+	int xPosition;
+	int yPosition;
+	string direction;
+	string height;
+public:
+	FylingKoopa(int x, int y, string lable);
+	void walk();
+	void print();
+
+};
+
+int main() {
+
+	
+
+	FylingKoopa Yee(300, 800, "A Yee"); //instantiate Cool and Quirky Koopas
+	FylingKoopa OkayOkay(10, 200, "OkayOkay");
+	//LOOP------------
+	while (1) {//game loop
+		//physics engine!
+		Yee.walk();
+		OkayOkay.walk();
+		//"render" section
+		Yee.print();
+		OkayOkay.print();
+		//"render" section
+		Sleep(160);
+		system("CLS");
+	}
+
+}
+
+FylingKoopa::FylingKoopa(int x, int y, string lable) {
+	xPosition = x;
+	yPosition = y;
+	direction = "left";
+	height = "up";
+	name = lable;
+}
+
+void FylingKoopa::walk() {
+	if (direction == "left")
+		xPosition -= 10;
+	if (xPosition <= 0)
+		direction = "right";
+
+	if (direction == "right")
+		xPosition += 10;
+	if (xPosition >= 800)
+		direction = "left";
+
+	if (height == "up")
+		yPosition += 20;
+	if (yPosition > 800)
+		height = "down";
+
+	if (height == "down")
+		yPosition -= 20;
+	if (yPosition < 400)
+		height = "up";
+}
+
+void FylingKoopa::print() {
+
+	cout << "Hi, I'm " << name << " koopa and I'm at " << "x =" << xPosition << " and y=" << yPosition << " And im moving " << direction << " and " << height << endl;
+
+	if (direction == "left") {
+		cout << char(17);
+	}
+	else {
+		cout << char(16);
+	}
+	if (height == "up") {
+		cout << char(30);
+	}
+	else {
+		cout << char(31);
+	}
+	cout << endl;
+}
