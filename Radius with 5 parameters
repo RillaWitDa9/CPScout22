@@ -1,0 +1,22 @@
+import math
+def CircleCollision(Cx, Cy, Mx, My, Radius):
+    if (math.sqrt((Cx-Mx)*(Cx-Mx)+(Cy-My)*(Cy-My))) > 10:
+        return False
+    else:
+        return True
+    
+print("Enter Circle X Pos:")
+Cx = int(input())
+print("Enter Circle Y Pos:")
+Cy = int(input())
+print("Enter Mouse X Pos:")
+Mx = int(input())
+print("Enter Mouse Y Pos:")
+My = int(input())
+print("Enter Radius:")
+Radius = int(input())
+
+if CircleCollision(Cx, Cy, Mx, My, Radius) == True:
+    print("Ok")
+else:
+    print("Dang")
