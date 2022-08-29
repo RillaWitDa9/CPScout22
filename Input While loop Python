@@ -1,0 +1,9 @@
+doExit = False
+while doExit == False:
+  print("press 'q' to quit")
+  letter = input()
+  print("you typed: ", letter)
+  if letter == 'q':
+      doExit = True
+  
+    
