@@ -1,0 +1,40 @@
+
+import pygame 
+pygame.init()
+
+
+doExit = False 
+
+
+screen = pygame.display.set_mode((500, 500))
+pygame.display.set_caption("flower")
+
+
+
+while not doExit:
+    
+    
+    screen.fill((0, 0, 0)) 
+    
+    
+    pygame.draw.ellipse(screen, (0,200,0), (170, 250, 40, 40))
+    pygame.draw.rect(screen, (0, 150, 0), (210, 220, 20, 100))
+    
+    pygame.draw.ellipse(screen, (255,100,0), (200, 200, 40, 40))
+    pygame.draw.ellipse(screen, (255,100,0), (185, 190, 40, 40))
+    pygame.draw.ellipse(screen, (255,0,0), (200, 180, 40, 40))
+    pygame.draw.ellipse(screen, (255,0,0), (215, 190, 40, 40))
+    
+    pygame.draw.ellipse(screen, (0,200,0), (270, 300, 40, 40))
+    pygame.draw.rect(screen, (0, 150, 0), (310, 270, 20, 100))
+    
+    pygame.draw.ellipse(screen, (255,100,0), (300, 250, 40, 40))
+    pygame.draw.ellipse(screen, (255,100,0), (285, 240, 40, 40))
+    pygame.draw.ellipse(screen, (255,0,0), (300, 230, 40, 40))
+    pygame.draw.ellipse(screen, (255,0,0), (315, 240, 40, 40))
+
+
+    pygame.display.flip() 
+
+
+pygame.quit() 
