@@ -1,0 +1,35 @@
+def  PythagoreanCheck(yo1, yo2, yo3,):
+  
+    if (yo1**2 + yo2**2 == yo3**2): 
+      return True
+    else:
+      return False
+yo1= 0
+yo2= 0
+yo3= 0
+
+  
+print("Give me the first number:")
+yo1 = int(input())
+print("This is the first number:", yo1)
+
+
+
+print("Give me the second number:")
+yo2 = int(input())
+print("This is the second number:", yo2)
+
+
+
+print("Give me the third number:")
+yo3 = int(input())
+print("This is the third number:", yo3)
+
+
+
+if  PythagoreanCheck(yo1, yo2, yo3):
+  print("YES!")
+else:
+  print("NO!")
+
+PythagoreanCheck(yo1, yo2, yo3)
