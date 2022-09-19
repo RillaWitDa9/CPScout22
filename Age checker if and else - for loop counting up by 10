@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+int main() {
+
+	int age;
+	cout << "Enter your age:" << endl;
+	cin >> age;
+	if (age >= 40) {
+		cout << "yeah yo game gonna run in 8 bit cuz you old" << endl;
+	}
+	if (age <= 13) {
+		cout << "Too young b sorry" << endl;
+
+	}
+	else if (age < 18) {
+		cout << "Get yo parent permission bruh" << endl;
+
+	}
+	else {
+		cout << " yoo you good to play!" << endl;
+	}
+	
+
+	int i;
+	int p;
+
+	for (i = 0; i <= 100; i += 10) {
+		std::cout << i << std::endl;
+	}
+
+	
+	for (p = 0; p >= 100; p -= 10) {
+		std::cout << p << std::endl;
+	}
+
+	
+	return 0;
+
+
+
+}
