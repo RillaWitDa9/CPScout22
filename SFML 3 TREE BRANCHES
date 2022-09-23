@@ -1,0 +1,113 @@
+#include <SFML/Graphics.hpp>
+
+
+int main()
+{
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Trees"); //set up screen
+	sf::CircleShape circle;
+	sf::RectangleShape rect;
+
+
+
+	while (window.isOpen())//GAME LOOP--------------------------------
+	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+
+		}
+
+		//render section-------------------------------
+		window.clear();
+
+		//left branch
+		circle.setRadius(30);
+		circle.setFillColor((sf::Color(100, 100, 80)));
+		circle.setPosition(200, 180);
+		window.draw(circle);
+
+		//right branch
+		circle.setRadius(30);
+		circle.setFillColor((sf::Color(180, 100, 90)));
+		circle.setPosition(250, 180);
+		window.draw(circle);
+
+		//top branch
+		circle.setRadius(30);
+		circle.setFillColor((sf::Color(100, 100, 0)));
+		circle.setPosition(225, 150);
+		window.draw(circle);
+
+		//trunk
+		rect.setPosition(245, 200);
+		rect.setFillColor(sf::Color(100, 80, 0));
+		rect.setSize(sf::Vector2f(20, 100));
+		window.draw(rect);
+
+		window.display(); //flip the buffer
+
+        //TREE 2---------------------------------------------------------------------------
+
+		//left branch
+		circle.setRadius(30);
+		circle.setFillColor((sf::Color(50, 0, 100)));
+		circle.setPosition(400, 180);
+		window.draw(circle);
+
+		//right branch
+		circle.setRadius(30);
+		circle.setFillColor((sf::Color(100, 100, 150)));
+		circle.setPosition(450, 180);
+		window.draw(circle);
+
+		//top branch
+		circle.setRadius(30);
+		circle.setFillColor((sf::Color(0, 100, 0)));
+		circle.setPosition(425, 150);
+		window.draw(circle);
+
+		//trunk
+		rect.setPosition(445, 200);
+		rect.setFillColor(sf::Color(100, 80, 0));
+		rect.setSize(sf::Vector2f(20, 100));
+		window.draw(rect);
+
+		window.display(); //flip the buffer
+
+		//TREE 3-------------------------------------------------------------------------------------
+
+		//left branch
+		circle.setRadius(30);
+		circle.setFillColor((sf::Color(80, 200, 80)));
+		circle.setPosition(400, 380);
+		window.draw(circle);
+
+		//right branch
+		circle.setRadius(30);
+		circle.setFillColor((sf::Color(100, 200, 0)));
+		circle.setPosition(450, 380);
+		window.draw(circle);
+
+		//top branch
+		circle.setRadius(30);
+		circle.setFillColor((sf::Color(255, 50, 0)));
+		circle.setPosition(425, 350);
+		window.draw(circle);
+
+		//trunk
+		rect.setPosition(445, 400);
+		rect.setFillColor(sf::Color(100, 80, 0));
+		rect.setSize(sf::Vector2f(20, 100));
+		window.draw(rect);
+
+		window.display(); //flip the buffer
+
+
+	}//end game loop-------------------------------------------------
+
+
+
+	return 0;
+} //end main
