@@ -1,0 +1,50 @@
+import time
+import random
+
+def yo():
+
+    n1 = random.randrange(0, 100)
+    n2 = random.randrange(0, 100)
+    n3 = random.randrange(0, 100)
+    n4 = random.randrange(0, 100)
+
+
+    print("Type the numbers in order:",n1, n2, n3, n4, "(press enter after each number)")
+    TimeStart = time.perf_counter()
+
+    num1 = int(input())
+    num2 = int(input())
+    num3 = int(input())
+    num4 = int(input())
+    
+    if num1 == n1:
+        print("the 1st # is correct")
+    else:
+        print("the 1st # isfalse")
+           
+    if num2 == n2:
+        print("the 2nd # is correct")
+    else:
+        print("the 2nd # is false")
+    
+    if num3 == n3:
+        print("the 3rd # is correct")
+    else:
+        print("the 3rd # is false")
+        
+    if num4 == n4:
+        print("the 4th # is correct")
+    else:
+        print("the 4th # is false")
+        
+    
+        
+    TimeEnd = time.perf_counter()
+
+    print(f"That took you in {TimeEnd-TimeStart:0.4f} seconds")
+    if TimeEnd-TimeStart <10:
+        print("good job")
+    else:
+        print("too slow b")
+    return False 
+yo()
