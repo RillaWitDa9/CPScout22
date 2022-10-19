@@ -1,0 +1,26 @@
+
+earth = input()
+if earth == "blue":
+    print("Sky is blue yo")
+elif earth == "green":
+    print("Grass is green bruh")
+else:
+    print("Thought I told you not to type that, now I'm upset")
+
+
+print("           ")
+print("Now tell me your age (this isn't werid at all)")
+
+age = input()
+if age < "43":
+    print("You're too young m8")
+elif age > "43":
+    print("You're too old boomer")
+elif age == "43":
+    print("Perfect age to play this game :)")
+
+print("     ")
+
+for i in range(10, 60, 5):
+    print(i)
+    
