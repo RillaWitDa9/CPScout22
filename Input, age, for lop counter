@@ -1,4 +1,7 @@
 
+print("Type green or blue, otherwise......")
+print("        ")
+
 earth = input()
 if earth == "blue":
     print("Sky is blue yo")
@@ -24,3 +27,25 @@ print("     ")
 for i in range(10, 60, 5):
     print(i)
     
+print("          ")
+
+def integers(q, f):
+   
+    print(q % f)
+
+q = 9
+f = 3
+integers(q, f)
+
+print("          ")
+
+def snorfle():
+    for l in range(13):
+        print("snorfle", l)
+snorfle()
+
+
+
+    
+    
+
