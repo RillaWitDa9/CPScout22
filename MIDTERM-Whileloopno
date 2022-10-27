@@ -1,0 +1,64 @@
+print("How many cookies do you have?")
+
+choice = input()
+
+
+
+if choice < "3":
+    print("You don't have enough lol")
+elif choice >= "3-10":
+    print("You have a good number of cookies")
+elif choice > "10":
+    print("You got too many cookies man")
+else:
+    print("you need to tell me how much cookie u got")
+    
+print("             ")
+
+print("Are you a jedi or a sith?")
+
+
+
+print("             ")
+G = input()
+
+if G == "jedi":
+    print("Nice you got a green light saber")
+elif G =="sith":
+    print("Dangg you got a red light saber")
+else:
+    print("Dang you don't know how to answer the question")
+
+
+
+print("          ")
+
+
+for i in range(4, 41, 2):
+    print(i)
+    
+print("          ")
+    
+for x in range(100, 40, -10):
+    print(x)
+    
+
+print("           ")
+
+l = 1
+
+#while l == True:
+    #print("Knock Knock, who's there.. banana!")
+    #if G == "orange":
+        #break
+#THE LOOP WONT STOP EVEN IF ORANGE IS TYPED IN BUT IT WORKS OTHERWISE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+x == 0
+def yo(x):
+    print("Give me a number")
+    x = int(input())
+    for x in range(x):
+        print(x, "bottles of root beer on the wall")
+yo(x)
+
+
+
