@@ -1,0 +1,29 @@
+print("How many cookies do you have?")
+
+choice = int(input())
+
+
+
+if choice < 3:
+    print("You don't have enough lol")
+elif choice <= 10:
+    print("You have a good number of cookies")
+elif choice > 10:
+    print("You got too many cookies man")
+else:
+    print("you need to tell me how much cookie u got")
+    
+print("         ")
+
+
+
+def rootB (b):
+    while b > 0:
+        print("Root beet", end="")
+        b-=1
+num = int(input("Enter a number"))
+
+
+rootB(num)
+        
+        
