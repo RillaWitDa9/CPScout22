@@ -1,0 +1,65 @@
+print("Enter your temperature of choice in F")
+
+choice = int(input())
+
+if choice <= 32:
+    print("Wear a jacket no cap")
+elif choice < 60:
+    print("Wear a sweater on god")
+elif choice >= 60:
+    print("A shirt is fine for rn")
+elif choice < 80:
+    print("A shirt is good for now")
+else:
+    print("Wrong choice b")
+    
+
+print("         ")
+
+
+
+print("Who's your favorite Mario character? Mario, Luigi, or Peach?")
+
+G = input()
+
+if G == "Mario":
+    print("It's me yo")
+elif G == "Luigi":
+    print("Luigi time bruh")
+elif G == "Peach":
+    print("You want some cake?")
+else:
+    print("Sorry wrong character b")
+    
+    
+print("          ")
+
+j = 20
+
+while j < 62:
+    print(j)
+    j+=2
+
+print("             ")
+
+#one = 10
+#two = 20
+#three = 30
+#four = 40
+
+
+
+
+def yo(one, two, three, four):
+    one = 15
+    two = 25
+    three = 35
+    four = 45
+    return
+
+    
+print(yo(10,20,30,40))
+    
+
+
+             
